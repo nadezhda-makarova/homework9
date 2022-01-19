@@ -11,7 +11,7 @@ class Editor {
     });
   };
 
-  getValue = () => {
+  getValue() {
     const value = localStorage.getItem('value');
     this.editor.value = value;
   };
