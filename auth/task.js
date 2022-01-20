@@ -10,12 +10,13 @@ btn.addEventListener('click', (e) => {
 
   let xhr = new XMLHttpRequest();
   xhr.open("POST", 'https://netology-slow-rest.herokuapp.com/auth.php');
+  xhr.responseType = 'json';
   xhr.send(form);
 
   xhr.onload = () => {
     const res = xhr.response;
     if (res.success) {
-      localStorage.setItem('user_id', '1');
+      localStorage.setItem('user_id', res.data_id);
       showModal();
     } else {
       alert('Неверный логин/пароль');
